@@ -27,7 +27,7 @@ const app = createServer((req, res) => {
 
     var url = new URL("http://localhost" + req.url)
 
-    if (url.pathname == "/random") {
+    if (url.pathname == "/.netlify/functions/index/random") {
         const id = keys[Math.floor(Math.random() * keys.length)]
         return res.end(JSON.stringify(
             {
@@ -37,7 +37,7 @@ const app = createServer((req, res) => {
         ))
     }
 
-    if (url.pathname == "/id") {
+    if (url.pathname == "/.netlify/functions/index/id") {
         const id = url.searchParams.get("id")
         return res.end(JSON.stringify(
             {
